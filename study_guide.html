@@ -1,0 +1,1744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Year 2 Unseen Poetry — Study Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0f14;
+    --surface: #141720;
+    --surface2: #1a1f2e;
+    --border: #2a3045;
+    --gold: #c9a84c;
+    --gold-light: #e8c96a;
+    --gold-dim: #8a6f2e;
+    --text: #d4cfc8;
+    --text-dim: #8a8a8a;
+    --text-bright: #f0ebe0;
+    --accent-red: #c45c5c;
+    --accent-blue: #5c8ac4;
+    --accent-green: #5ca87c;
+    --accent-purple: #9a6cc4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: linear-gradient(180deg, #0a0c10 0%, var(--bg) 100%);
+    border-bottom: 1px solid var(--gold-dim);
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .header-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    opacity: 0.9;
+  }
+
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    color: var(--text-bright);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  header h1 em {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .header-sub {
+    margin-top: 0.75rem;
+    font-size: 1rem;
+    color: var(--text-dim);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(13,15,20,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 1.5rem;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  nav::-webkit-scrollbar { display: none; }
+
+  nav a {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    text-decoration: none;
+    padding: 1rem 1.1rem;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: color 0.2s, border-color 0.2s;
+    flex-shrink: 0;
+  }
+
+  nav a:hover, nav a.active {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+
+  /* ── LAYOUT ── */
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem 6rem;
+  }
+
+  section {
+    padding: 4rem 0 2rem;
+  }
+
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 700;
+    color: var(--text-bright);
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.75rem;
+  }
+
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    margin: 2rem 0 0.75rem;
+  }
+
+  h4 {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin: 1.25rem 0 0.4rem;
+  }
+
+  p { margin-bottom: 0.75rem; color: var(--text); }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+    transition: border-color 0.2s;
+  }
+
+  .card:hover { border-color: var(--gold-dim); }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+
+  .card-sm {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.1rem 1.2rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .card-sm:hover {
+    border-color: var(--gold-dim);
+    transform: translateY(-2px);
+  }
+
+  .card-sm h4 { margin-top: 0; }
+
+  /* ── POEM BOX ── */
+  .poem-box {
+    background: var(--surface2);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+    padding: 1.5rem 2rem;
+    margin: 1.25rem 0;
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 2;
+    color: var(--text);
+    white-space: pre-wrap;
+    position: relative;
+  }
+
+  .poem-attribution {
+    font-style: normal;
+    font-size: 0.85rem;
+    color: var(--gold);
+    margin-top: 1rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+  }
+
+  /* ── ACCORDION ── */
+  details {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+  }
+
+  summary {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--text-bright);
+    cursor: pointer;
+    padding: 1rem 1.25rem;
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    list-style: none;
+    transition: background 0.2s;
+    user-select: none;
+  }
+
+  summary::-webkit-details-marker { display: none; }
+
+  summary::before {
+    content: '▶';
+    font-size: 0.65rem;
+    color: var(--gold);
+    transition: transform 0.25s;
+    flex-shrink: 0;
+  }
+
+  details[open] summary::before { transform: rotate(90deg); }
+  details[open] summary { background: var(--surface2); }
+
+  .details-body {
+    padding: 1.25rem 1.5rem;
+    background: var(--surface2);
+    border-top: 1px solid var(--border);
+  }
+
+  /* ── RUBRIC TABLE ── */
+  .rubric-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    margin-top: 1rem;
+  }
+
+  .rubric-table th {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: var(--surface2);
+    color: var(--gold);
+    padding: 0.6rem 0.75rem;
+    text-align: left;
+    border: 1px solid var(--border);
+  }
+
+  .rubric-table td {
+    padding: 0.65rem 0.75rem;
+    border: 1px solid var(--border);
+    vertical-align: top;
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  .rubric-table tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+
+  .band-label {
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .band-aplus { color: #e8c96a; }
+  .band-a { color: #a8d898; }
+  .band-b { color: #78b8f8; }
+  .band-c { color: #c898e8; }
+  .band-d { color: #f8a878; }
+  .band-e { color: #f88878; }
+  .band-f { color: var(--text-dim); }
+
+  /* ── TECHNIQUE TAGS ── */
+  .tag {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.05em;
+    padding: 0.2em 0.6em;
+    border-radius: 3px;
+    margin: 0.15rem;
+    vertical-align: middle;
+  }
+
+  .tag-gold { background: rgba(201,168,76,0.15); color: var(--gold); border: 1px solid var(--gold-dim); }
+  .tag-blue { background: rgba(92,138,196,0.15); color: #7ab0e8; border: 1px solid #3a6a9a; }
+  .tag-red  { background: rgba(196,92,92,0.15);  color: #e88888; border: 1px solid #8a3a3a; }
+  .tag-green{ background: rgba(92,168,124,0.15); color: #88d8a8; border: 1px solid #3a7a5a; }
+  .tag-purple { background: rgba(154,108,196,0.15); color: #c498f8; border: 1px solid #6a3a9a; }
+
+  /* ── QUOTE ── */
+  blockquote {
+    border-left: 3px solid var(--gold-dim);
+    margin: 1rem 0;
+    padding: 0.75rem 1.25rem;
+    color: var(--text-dim);
+    font-style: italic;
+    background: rgba(201,168,76,0.04);
+    border-radius: 0 4px 4px 0;
+  }
+
+  blockquote strong { color: var(--gold); font-style: normal; }
+
+  /* ── STEPS ── */
+  .steps { counter-reset: step; margin: 0.75rem 0; }
+
+  .step {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+  }
+
+  .step-num {
+    counter-increment: step;
+    content: counter(step);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: var(--gold-dim);
+    color: #000;
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    font-size: 0.75rem;
+  }
+
+  .step-content { flex: 1; }
+  .step-title { font-weight: 600; color: var(--text-bright); margin-bottom: 0.2rem; }
+  .step-desc { font-size: 0.9rem; color: var(--text-dim); margin: 0; }
+
+  /* ── ESSAY TEMPLATE ── */
+  .essay-row {
+    display: flex;
+    gap: 0;
+    margin-bottom: 2px;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .essay-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    background: var(--gold-dim);
+    color: #000;
+    width: 130px;
+    min-width: 130px;
+    padding: 0.6rem 0.7rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+  }
+
+  .essay-content {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: none;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    color: var(--text);
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  .essay-label.ts-row { background: #c45c5c; }
+  .essay-label.ev-row { background: #5c8ac4; }
+  .essay-label.an-row { background: #5ca87c; }
+  .essay-label.ex-row { background: #9a6cc4; }
+  .essay-label.ti-row { background: var(--gold); color: #000; }
+
+  /* ── SENTENCE STARTER TABLE ── */
+  .starter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 0.5rem;
+    margin: 0.75rem 0;
+  }
+
+  .starter-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 0.5rem 0.85rem;
+    font-size: 0.88rem;
+    color: var(--text);
+    border-left: 3px solid var(--gold-dim);
+  }
+
+  .starter-item span {
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  /* ── KEYWORD PILL ── */
+  .kw { color: var(--gold-light); font-style: italic; }
+
+  /* ── DIVIDER ── */
+  hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+  }
+
+  /* ── IMPORTANT NOTE ── */
+  .note {
+    background: rgba(201,168,76,0.08);
+    border: 1px solid var(--gold-dim);
+    border-radius: 6px;
+    padding: 0.85rem 1.1rem;
+    margin: 1rem 0;
+    font-size: 0.92rem;
+  }
+
+  .note strong { color: var(--gold); }
+
+  /* ── WARN BOX ── */
+  .warn {
+    background: rgba(196,92,92,0.08);
+    border: 1px solid #6a3030;
+    border-radius: 6px;
+    padding: 0.85rem 1.1rem;
+    margin: 1rem 0;
+    font-size: 0.92rem;
+  }
+
+  .warn strong { color: var(--accent-red); }
+
+  /* ── GRID 2 ── */
+  .grid2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  @media (max-width: 640px) {
+    .grid2 { grid-template-columns: 1fr; }
+    .essay-label { width: 90px; min-width: 90px; font-size: 0.52rem; }
+  }
+
+  /* ── MINI HEADER ── */
+  .mini-header {
+    background: linear-gradient(90deg, var(--surface2) 0%, transparent 100%);
+    border-left: 3px solid var(--gold);
+    padding: 0.4rem 0.75rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+    border-radius: 0 4px 4px 0;
+  }
+
+  /* ── SCROLL FADE IN ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  section {
+    animation: fadeUp 0.5s ease both;
+  }
+
+  /* ── BACK TO TOP ── */
+  .back-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--gold-dim);
+    color: #000;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1rem;
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    opacity: 0.7;
+    transition: opacity 0.2s, transform 0.2s;
+    z-index: 200;
+  }
+  .back-top:hover { opacity: 1; transform: scale(1.1); }
+
+  /* ── HIGHLIGHT ── */
+  mark {
+    background: rgba(201,168,76,0.2);
+    color: var(--gold-light);
+    border-radius: 2px;
+    padding: 0 3px;
+  }
+
+  ul, ol {
+    padding-left: 1.3rem;
+    margin: 0.4rem 0 0.75rem;
+  }
+
+  li { margin-bottom: 0.25rem; color: var(--text); }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem;
+    text-align: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+<!-- ======== HEADER ======== -->
+<header>
+  <div class="header-label">Raffles Programme · Year 2 English Literature</div>
+  <h1>Unseen Poetry<br><em>Study Guide</em></h1>
+  <div class="header-sub">Poems · Techniques · Essay Structure · Rubric · Key Concepts</div>
+</header>
+
+<!-- ======== NAV ======== -->
+<nav>
+  <a href="#scorewell">Score Well</a>
+  <a href="#approach">Approach</a>
+  <a href="#essay">Essay Structure</a>
+  <a href="#poems">Poems</a>
+  <a href="#techniques">Techniques</a>
+  <a href="#irony">Irony</a>
+  <a href="#form">Form</a>
+  <a href="#vocab">Writing Vocab</a>
+  <a href="#rubric">Rubric</a>
+  <a href="#sample">Sample Para</a>
+  <a href="#thematic">Thematic Insights</a>
+</nav>
+
+<main>
+
+<!-- ======== SCORE WELL ======== -->
+<section id="scorewell">
+  <div class="section-label">00 — Summary</div>
+  <h2>How to Score Well</h2>
+  <p>This is the top-level checklist. Every other section in this guide feeds into these principles. Internalise these before entering the exam.</p>
+
+  <h3>The 5-Step Analysis Process (per paragraph)</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <div class="step-title">Split the poem — identify Structure</div>
+        <div class="step-desc">How does the poem develop from beginning to end? What changes between Part 1 and Part 2? Look for: developments, contrasts, turning points, shifts in tone or perspective.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <div class="step-title">Identify Form</div>
+        <div class="step-desc">Is the poem free verse or stanzaic? What does this suggest about the poem's meaning? (e.g. free verse = chaos/freedom; regular stanzas = restriction/entrapment.) This should appear in every essay.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <div class="step-title">Identify Techniques — both Primary &amp; Secondary</div>
+        <div class="step-desc">Don't just name one technique. Identify the primary technique (e.g. metaphor) AND the secondary one (e.g. the auditory imagery it creates, or the irony it conveys). Stacking techniques in one analysis raises your band.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <div class="step-title">Use Adjectives — scatter them through your analysis</div>
+        <div class="step-desc">After naming the effect, qualify it with an adjective: "a <em>jarring</em>, <em>unsettling</em> effect…", "a <em>sardonic</em> tone…", "a <em>sinister</em> undercurrent…". Adjectives signal a personal, sensitive response to the text.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <div class="step-title">State the Theme &amp; Thematic Insight</div>
+        <div class="step-desc">End each paragraph (and especially your essay) with the big picture. Don't just describe what the poem shows — state what it <em>reveals</em> about the human condition, society, or a universal theme.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note"><strong>Paragraph format:</strong> Aim for <mark>5 × 2-sentence structures per paragraph</mark>: one sentence of evidence + sub-analysis (with adjectives scattered), one sentence of main analysis. Must ATQ (Answer The Question) throughout — keep tying back to the question keyword.</div>
+
+  <h3>The Four Things That Raise Your Band</h3>
+  <div class="card-grid">
+    <div class="card-sm" style="border-color: var(--gold-dim);">
+      <h4>1. Unpack connotations, not just definitions</h4>
+      <p>Don't say a word "means" something. Say what it <em>suggests</em>, <em>implies</em>, or <em>connotes</em>. Then describe the <em>quality</em> of that connotation (e.g. violent, unsettling, predatory) and link it to a personal response.</p>
+    </div>
+    <div class="card-sm" style="border-color: var(--gold-dim);">
+      <h4>2. Stack primary + secondary techniques</h4>
+      <p>A single quotation usually contains multiple techniques. Name the primary one, then identify what secondary effect it creates (e.g. "the metaphor also creates disturbing auditory imagery" / "this is further heightened by the irony of…").</p>
+    </div>
+    <div class="card-sm" style="border-color: var(--gold-dim);">
+      <h4>3. Link form to meaning</h4>
+      <p>Every essay should contain at least one sentence connecting the poem's physical form to its meaning. Regular form = restriction / entrapment. Free verse = chaos / freedom. Pantoum/repeating lines = inescapable cycles.</p>
+    </div>
+    <div class="card-sm" style="border-color: var(--gold-dim);">
+      <h4>4. Develop your Thematic Insight</h4>
+      <p>Band B = describe what the poem shows. Band A = identify a contrast or development in how it shows it. Band A+ = state what the poem reveals about the big picture — a truth about society, human nature, or power.</p>
+    </div>
+  </div>
+
+  <h3>What to Avoid</h3>
+  <div class="warn">
+    <ul>
+      <li><strong>Paraphrase:</strong> Retelling the poem's story is a Band C response. Every sentence must be <em>analysis</em>, not summary.</li>
+      <li><strong>Quoting in chunks:</strong> Select the smallest, most precise piece of evidence. Quote only the word or phrase that carries the technique.</li>
+      <li><strong>Vague adjectives:</strong> Avoid "interesting," "good," "nice." Use the vocabulary from Section 07.</li>
+      <li><strong>Missing the topic sentence:</strong> Every paragraph must open with a clear argument — not a re-statement of the question.</li>
+      <li><strong>One-level thematic insights:</strong> "The poem shows the effects of war on children" is Band B. Develop further: what does it reveal about society's indifference, the individual's powerlessness, or the cyclical nature of trauma?</li>
+    </ul>
+  </div>
+
+  <h3>Quick Exam Checklist</h3>
+  <div class="card" style="border-color: var(--gold-dim);">
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+      <div style="font-size:0.92rem; color:var(--text);">☐ Topic sentence answers the question directly</div>
+      <div style="font-size:0.92rem; color:var(--text);">☐ At least 4 quotations per essay</div>
+      <div style="font-size:0.92rem; color:var(--text);">☐ Every quotation is analysed (not just named)</div>
+      <div style="font-size:0.92rem; color:var(--text);">☐ Connotations unpacked with adjectives</div>
+      <div style="font-size:0.92rem; color:var(--text);">☐ Primary + secondary techniques stacked</div>
+      <div style="font-size:0.92rem; color:var(--text);">☐ Form discussed and linked to meaning</div>
+      <div style="font-size:0.92rem; color:var(--text);">☐ Personal response present ("the reader feels…")</div>
+      <div style="font-size:0.92rem; color:var(--text);">☐ Structure (poem development) addressed</div>
+      <div style="font-size:0.92rem; color:var(--text);">☐ Thematic insight is developed (not just Band B)</div>
+      <div style="font-size:0.92rem; color:var(--text);">☐ ATQ throughout — question keyword referenced</div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== APPROACH ======== -->
+<section id="approach">
+  <div class="section-label">01 — Framework</div>
+  <h2>Approach to Unseen Poems</h2>
+
+  <p>Before writing, work through these four steps on any unseen poem. Annotate directly on the page.</p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <div class="step-title">Read &amp; Annotate</div>
+        <div class="step-desc">First question to ask: <em>"What is the persona describing?"</em> Read the poem at least twice. Underline striking language; note your immediate reactions.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <div class="step-title">Identify Subject Matter (SM)</div>
+        <div class="step-desc">What is literally happening? e.g. "The persona describes the ascent of war." This is your SM — the literal topic of the poem.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <div class="step-title">Split Poem into 2 Parts → Structure</div>
+        <div class="step-desc">Divide the poem (often 1st half / 2nd half) and note what changes. Structure = the development of ideas across the poem. e.g. Part 1: devastating/traumatic effect of war on children. Part 2: war family/persona feels helpless.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <div class="step-title">Identify Theme &amp; Thematic Insight (TI)</div>
+        <div class="step-desc">Theme: the big idea (e.g. War). Thematic Insight: what does the poem <em>reveal</em> about that theme? e.g. "CiW reveals the traumatic effect of war on children."</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note"><strong>WAZ Framework</strong> — When analysing form first: <strong>W</strong>hat is it? <strong>A</strong>nalysis. <strong>Z</strong>one/effect. Step 1: Identify the poem's form (free verse / stanzaic). Step 2: Analyse what this form suggests — e.g. does it restrict, liberate, entrap, or mirror the subject matter? Step 3: State the effect on meaning/theme.</div>
+</section>
+
+<!-- ======== ESSAY STRUCTURE ======== -->
+<section id="essay">
+  <div class="section-label">02 — Writing</div>
+  <h2>Essay Structure</h2>
+
+  <p>Each paragraph should follow this sequence. Aim to analyse <mark>as many pieces of evidence as possible</mark> within the time limit. Every sentence should have a method → effect → meaning chain.</p>
+
+  <div class="essay-row">
+    <div class="essay-label ts-row">Topic Sentence</div>
+    <div class="essay-content">Introduce your argument — what aspect of the poem you will explore. Do <strong>not</strong> just repeat the question. Must be present — "Topic sentence missing" is a common mistake.</div>
+  </div>
+  <div class="essay-row">
+    <div class="essay-label ev-row">Evidence 1 + Context</div>
+    <div class="essay-content">Select a specific, short quotation. Provide brief context if needed (where it appears; who is speaking).</div>
+  </div>
+  <div class="essay-row">
+    <div class="essay-label an-row">Analysis 1</div>
+    <div class="essay-content">Unpack the language — connotations, techniques, sounds. Name the method; explain why the poet chose <em>these</em> words.</div>
+  </div>
+  <div class="essay-row">
+    <div class="essay-label ex-row">Explanation 1</div>
+    <div class="essay-content">Explain the effect on the reader and link back to the question / theme.</div>
+  </div>
+  <div class="essay-row">
+    <div class="essay-label ev-row">Evidence 2 + Context</div>
+    <div class="essay-content">A second quotation — ideally from a different part of the poem to show development.</div>
+  </div>
+  <div class="essay-row">
+    <div class="essay-label an-row">Analysis 2</div>
+    <div class="essay-content">Deeper: consider structural devices, imagery, irony. "The use of ___ imagery in '___' partly acts as a vivid image of the destruction…"</div>
+  </div>
+  <div class="essay-row">
+    <div class="essay-label ex-row">Explanation 2</div>
+    <div class="essay-content">Effect on the reader; personal response. "…it is devastating that they think something is massive or colossal…"</div>
+  </div>
+  <div class="essay-row">
+    <div class="essay-label ev-row">Evidence 3 + Context</div>
+    <div class="essay-content">Third quotation — aim for variety (sound, structure, form).</div>
+  </div>
+  <div class="essay-row">
+    <div class="essay-label an-row">Analysis 3</div>
+    <div class="essay-content">Consider imagery, also the poem's visual shape — "The imagery also portrays/has something to large as the sky could be brought down."</div>
+  </div>
+  <div class="essay-row">
+    <div class="essay-label ex-row">Explanation 3</div>
+    <div class="essay-content">Highlight the insignificance of human lives to the war and its indifference to each (effect on reader).</div>
+  </div>
+  <div class="essay-row">
+    <div class="essay-label ev-row">Evidence 4 + Context</div>
+    <div class="essay-content">Fourth quotation — push towards a fourth if time allows.</div>
+  </div>
+  <div class="essay-row">
+    <div class="essay-label an-row">Analysis 4</div>
+    <div class="essay-content">Look for the subtlest technique: alliteration, enjambment, ambiguity, irony.</div>
+  </div>
+  <div class="essay-row">
+    <div class="essay-label ex-row">Explanation 4</div>
+    <div class="essay-content">Tie back to the question; consider an alternative reading.</div>
+  </div>
+  <div class="essay-row">
+    <div class="essay-label ti-row">Thematic Insight</div>
+    <div class="essay-content">Big picture statement. "Thematically, conflict often affects and afflicts innocent people — often the ordinary — much more than those who started it / in charge."</div>
+  </div>
+
+  <div class="warn" style="margin-top:1.5rem;"><strong>Common Pitfalls (from teacher feedback):</strong> Not unpacking descriptors — you must explain the <em>quality</em> of the action, connotations, and personal response. Quoting in chunks or quoting unnecessary/literal parts. Thematic insights too simple — aim for Band A contrast or Band A+ big picture. Check: are you doing all of this meticulously enough?</div>
+</section>
+
+<!-- ======== POEMS ======== -->
+<section id="poems">
+  <div class="section-label">03 — Texts</div>
+  <h2>Poems</h2>
+  <p>All six poems studied. Click each title to expand the full text and key notes.</p>
+
+  <!-- CiW -->
+  <details>
+    <summary>Children in Wartime — Isobel Thrilling</summary>
+    <div class="details-body">
+      <div class="mini-header">Question: How does the poet vividly portray the experience of war?</div>
+      <div class="poem-box">Sirens ripped open
+the warm silk of sleep;
+we ricocheted to the shelter
+moated by streets
+that ran with darkness.          5
+People said it was a storm,
+but flak
+had not the right sound
+for rain;
+thunder left such huge craters  10
+of silence,
+we knew this was no giant
+playing bowls.
+And later,
+when I saw the jaw of glass,    15
+where once had hung
+my window spun with stars;
+it seemed the sky
+lay broken on my floor.
+
+<span class="poem-attribution">— by Isobel Thrilling</span></div>
+      <h4>Key Annotations &amp; Notes</h4>
+      <div class="grid2">
+        <div>
+          <div class="note"><strong>Structure:</strong> 1st half = devastating/traumatic effect of war on children. 2nd half = war family / persona feels helpless.</div>
+          <p><strong>SM:</strong> The persona describes the ascent / experience of war.<br>
+          <strong>Theme:</strong> War<br>
+          <strong>TI:</strong> CiW reveals the traumatic effect of war on children.</p>
+        </div>
+        <div>
+          <h4>Glossary</h4>
+          <ul>
+            <li><em>Ricocheted</em> — to bounce or skip</li>
+            <li><em>Moated</em> — deep ditch surrounding a fort/castle (as defence)</li>
+            <li><em>Flak</em> — anti-aircraft fire</li>
+            <li><em>Craters</em> — bowl-shaped cavity from explosion</li>
+            <li><em>Playing bowls</em> — game requiring rolling balls on a lawn</li>
+          </ul>
+        </div>
+      </div>
+      <h4>Key Quotations to Analyse</h4>
+      <ul>
+        <li><mark>"Sirens ripped open / the warm silk of sleep"</mark> — metaphor; violent disruption of innocence/childhood safety; personification of sirens as predatory</li>
+        <li><mark>"the jaw of glass"</mark> — metaphor linking to destruction; broken window = broken world; also the "broken vials" symbol of destroyed childhood</li>
+        <li><mark>"it seemed the sky / lay broken on my floor"</mark> — visual imagery; war makes something as vast as the sky collapse into a child's room; scale of destruction becomes personal; sense of the untouchable being destroyed</li>
+        <li><mark>"we knew this was no giant / playing bowls"</mark> — understatement / situational irony; juxtaposes playful childhood image with violent reality of war</li>
+        <li><strong>Visual/wheel imagery</strong> in "the sky lay broken on the floor" — partly acts as vivid image of destruction; portrays persona as victim; devastating that they think something massive/colossal could be brought down to personal scale</li>
+      </ul>
+    </div>
+  </details>
+
+  <!-- Anthem -->
+  <details>
+    <summary>Anthem for Doomed Youth — Wilfred Owen</summary>
+    <div class="details-body">
+      <div class="mini-header">Question: How does the poet vividly portray the experience of war?</div>
+      <div class="poem-box">What passing-bells for these who die as cattle?
+  — Only the monstrous anger of the guns.
+  Only the stuttering rifles' rapid rattle
+  Can patter out their hasty orisons.
+No mockeries now for them; no prayers nor bells;   5
+  Nor any voice of mourning save the choirs,—
+The shrill, demented choirs of wailing shells;
+  And bugles calling for them from sad shires.
+
+What candles may be held to speed them all?
+  Not in the hands of boys, but in their eyes     10
+Shall shine the holy glimmers of goodbyes.
+  The pallor of girls' brows shall be their pall;
+Their flowers the tenderness of patient minds,
+And each slow dusk a drawing-down of blinds.
+
+<span class="poem-attribution">— by Wilfred Owen</span></div>
+      <h4>Glossary</h4>
+      <ul>
+        <li><em>Passing-bells</em> — a bell rung immediately after death as signal for prayers</li>
+        <li><em>Orisons</em> — prayers</li>
+        <li><em>Pall</em> — a heavy cloth draped over a coffin</li>
+      </ul>
+    </div>
+  </details>
+
+  <!-- Dulce -->
+  <details>
+    <summary>Dulce et Decorum Est — Wilfred Owen</summary>
+    <div class="details-body">
+      <div class="poem-box">Bent double, like old beggars under sacks,
+Knock-kneed, coughing like hags, we cursed through sludge,
+Till on the haunting flares we turned our backs
+And towards our distant rest began to trudge.
+Men marched asleep. Many had lost their boots       5
+But limped on, blood-shod. All went lame; all blind;
+Drunk with fatigue; deaf even to the hoots
+Of gas-shells dropping softly behind.
+
+Gas! GAS! Quick, boys!— An ecstasy of fumbling,
+Fitting the clumsy helmets just in time;           10
+But someone still was yelling out and stumbling,
+And flound'ring like a man in fire or lime,—
+Dim through the misty panes and thick green light,
+As under a green sea, I saw him drowning.
+
+In all my dreams before my helpless sight,
+He plunges at me, guttering, choking, drowning.
+
+If in some smothering dreams, you too could pace
+Behind the wagon that we flung him in,
+And watch the white eyes writhing in his face,
+His hanging face, like a devil's sick of sin;       20
+If you could hear, at every jolt, the blood
+Come gargling from the froth-corrupted lungs,
+Obscene as cancer, bitter as the cud
+Of vile, incurable sores on innocent tongues,—
+My friend, you would not tell with such high zest
+To children ardent for some desperate glory,
+The old lie: Dulce et decorum est
+Pro patria mori.
+
+<span class="poem-attribution">— by Wilfred Owen</span></div>
+      <h4>Key Annotations &amp; Notes</h4>
+      <div class="grid2">
+        <div>
+          <p><em>Dulce et decorum est pro patria mori</em> = "It is sweet and fitting/honourable to die for one's country" — <strong>irony</strong> (the "old lie")</p>
+          <p>The poem directly challenges the patriotic idea of dying gloriously in war. Bitter, violent language undercuts any romance of warfare.</p>
+        </div>
+        <div>
+          <h4>Glossary</h4>
+          <ul>
+            <li><em>Blood-shod</em> — partly distorted food (wearing blood as shoes)</li>
+            <li><em>Ecstasy of fumbling</em> — frenzied panic</li>
+          </ul>
+        </div>
+      </div>
+      <h4>Key Techniques</h4>
+      <ul>
+        <li><strong>Rhythm:</strong> Slow, dragging rhythm mirrors soldiers' exhaustion (enjambment, lack of strong caesura early on)</li>
+        <li><strong>Sound:</strong> Cacophony of harsh consonants: "coughing," "cursed," "knock-kneed" — abrasive and violent</li>
+        <li><strong>Metaphor:</strong> "As under a green sea, I saw him drowning" — drowning in gas, helplessness</li>
+        <li><strong>Direct address:</strong> "My friend" — implicates the reader in the lie of glory</li>
+        <li><strong>Irony (verbal/situational):</strong> Calling the line "the old lie" — expectation of patriotic glory is completely subverted</li>
+      </ul>
+    </div>
+  </details>
+
+  <!-- afternoon nap -->
+  <details>
+    <summary>an afternoon nap — Arthur Yap</summary>
+    <div class="details-body">
+      <div class="mini-header">Question: How does the poet vividly portray the mother's relationship with her child?</div>
+      <div class="poem-box">the ambitious mother across the road
+is at it again. proclaiming her goodness
+she beats the boy. shouting out his wrongs, with raps
+she begins with his mediocre report-book grades.
+
+she strikes chords for the afternoon piano lesson,        5
+her voice stridently imitates 2nd. lang. tuition,
+all the while circling the cowering boy
+in a manner apt for the most strenuous p.e. ploy.
+
+swift are all her contorted movements,
+ape for every need; no soft gradient                     10
+of a consonant-vowel figure, she lumbers
+&amp; shrieks, a hit for every 2 notes missed.
+
+his tears are dear. each monday,
+wednesday, friday, miss low &amp; madam lim
+appear &amp; take away $90 from the kitty                   15
+leaving him an adagio, clause analysis, little pocket-money
+
+the embittered boy across the road
+is at it again. proclaiming his bewilderment
+he yells at her. shouting out her wrongs, with tears
+he begins with her expensive taste for education.        20
+
+<span class="poem-attribution">— by Arthur Yap</span></div>
+      <h4>Glossary</h4>
+      <ul>
+        <li><em>2nd lang. tuition</em> — tuition for mother tongue</li>
+        <li><em>p.e. ploy</em> — a cunning action to turn a situation to advantage during Physical Education</li>
+        <li><em>Lumbers</em> — moves in a slow, heavy, awkward way</li>
+        <li><em>Adagio</em> — in music, music played very slowly</li>
+      </ul>
+      <h4>Key Analysis Points</h4>
+      <ul>
+        <li><mark>"circling the cowering boy"</mark> — "circling" connotes predatory/hunting behaviour; the mother as predator circling prey. "Cowering" = fear, submission; juxtaposes the vulnerability of the boy vs. the mother's aggression.</li>
+        <li><mark>"strikes chords"</mark> — double meaning: literal (piano) and metaphorical (emotional strikes/hits)</li>
+        <li><mark>"ape for every need"</mark> — metaphor; comparison to a wild primitive ape highlights uncontrollable, animalistic anger; disproportionate to the child's trivial mistakes</li>
+        <li><mark>"no soft gradient / of a consonant-vowel figure, she lumbers"</mark> — auditory imagery; mother's voice has no softness, only harsh sounds; creates uncomfortable, unpleasant image for the reader; jarring effect</li>
+        <li><mark>"shrieks, a hit for every 2 notes missed"</mark> — brutal transactional relationship; punishment disproportionate; cacophonous auditory image</li>
+        <li><strong>Structural parallel (stanzas 1 &amp; 5):</strong> First and last stanzas mirror each other but from the boy's perspective — reflects how the mother's behaviour has shaped him. The boy now uses the same language of complaint as the mother.</li>
+        <li><strong>Regular quatrains:</strong> The unchanging stanzaic form parallels the boy's psychological confinement — enacts the sense of restriction and entrapment he feels.</li>
+      </ul>
+      <h4>Big Picture Thematic Insights</h4>
+      <div class="card" style="border-color: var(--gold-dim); margin-top: 0.5rem;">
+        <p><strong>Ind. vs Society:</strong> The mother becomes a <em>symbol of Asian societal expectations</em> around education. The son views the mother as the embodiment of these expectations — and both are entrapped by them, as literalised through the poem's regular form.</p>
+        <p><strong>Generational cycle:</strong> The structure of the poem (stanzas 1 and 5 mirroring each other) enacts a never-ending argument. Despite the child's trauma, by the final stanza the <em>child becomes the parent</em> — replicating the same language of complaint. This is the poem's tragic irony: the child cannot yet understand the mother's loving intentions.</p>
+        <p><strong>Tragic irony:</strong> There is inherent tragic irony in the poem — the mother wants her child to succeed (her intentions, however misguided, stem from love), yet her methods cause psychological harm. The child does not understand this — <em>yet</em>. This reveals how societal ambition, cloaked in parental love, can become a form of trauma.</p>
+      </div>
+      <div class="warn"><strong>Selection of evidence:</strong> Do not quote in chunks or quote unnecessary/literal parts. Be selective. From the first 3 stanzas, ideal evidence would be: "the ambitious mother across the road / is at it again" | "she strikes chords for the afternoon piano lesson" | "all the while circling the cowering boy" | "swift are all her contorted movements"</div>
+    </div>
+  </details>
+
+  <!-- Decomposition -->
+  <details>
+    <summary>Decomposition — Zulfikar Ghose</summary>
+    <div class="details-body">
+      <div class="mini-header">Question: How does the poet vividly portray the beggar in the poem?</div>
+      <div class="poem-box">I have a picture I took in Bombay
+of a beggar asleep on the pavement:
+grey-haired, wearing shorts and a dirty shirt,
+his shadow thrown aside like a blanket.
+
+His arms and legs could be cracks in the stone,     5
+routes for the ants' journeys, the flies' descents.
+Brain-washed by the sun into exhaustion,
+he lies veined into stone, a fossil man.
+
+Behind him there is a crowd passingly
+bemused by a pavement trickster and quite           10
+indifferent to this very common sight
+of an old man asleep on the pavement.
+
+I thought it then a good composition
+and glibly called it "The Man in the Street,"
+remarking how typical it was of                    15
+India that the man in the street lived there.
+
+His head in the posture of one weeping
+into a pillow chides me now for my
+presumption at attempting to compose
+art of his hunger and solitude.                    20
+
+<span class="poem-attribution">— by Zulfikar Ghose</span></div>
+      <h4>Key Annotations &amp; Notes</h4>
+      <div class="grid2">
+        <div>
+          <p><strong>Form:</strong> Stanzaic verse → resolution/restriction. Speaker = photographer.</p>
+          <p><strong>Themes:</strong> Social inequality, art &amp; ethics, indifference, poverty, human dignity.</p>
+          <p><strong>Structure:</strong> Begins with detached observation → ends with guilt and self-reproach (irony)</p>
+        </div>
+        <div>
+          <h4>Key Annotations</h4>
+          <ul>
+            <li>"shadow thrown aside like a blanket" — simile; beggar has nothing but his own shadow as cover; emphasises poverty</li>
+            <li>"fossil man" — metaphor; dehumanisation; stone = cold indifference of society; veined into stone = immovable, forgotten</li>
+            <li>"cracks in the stone" — visual imagery; his limbs merge with the pavement; invisible, unnoticed</li>
+          </ul>
+        </div>
+      </div>
+      <h4>Tone &amp; Persona</h4>
+      <div class="note"><strong>Key tone of the speaker:</strong> Not sympathetic — rather <em>indifferent, condescending, matter-of-fact</em>. The speaker initially treats the beggar as a photographic subject, not a human being. This detachment is the poem's central irony: the speaker professes artistic interest but is actually part of the system of indifference.</div>
+      <h4>Key Analysis Points</h4>
+      <ul>
+        <li><mark>"shadow thrown aside like a blanket"</mark> — simile; beggar has nothing but his own shadow as cover; emphasises destitution; the "thrown aside" suggests something discarded, devalued</li>
+        <li><mark>"fossil man"</mark> — metaphor; dehumanisation; stone = cold indifference of society; "fossil" implies he is a relic, forgotten, already dead to the world</li>
+        <li><mark>"cracks in the stone"</mark> — visual imagery; his limbs merge with the pavement; invisible, unnoticed; suggests he has become part of the urban landscape rather than a person</li>
+        <li><mark>"quite indifferent to this very common sight"</mark> — the crowd's reaction mirrors the speaker's initial response; "common sight" is damning — poverty is so normalised it no longer registers</li>
+        <li><mark>"glibly called it 'The Man in the Street'"</mark> — "glibly" = superficially, without genuine thought; the speaker reduces the beggar's suffering to a clever title; how higher classes tend to make art of poverty but instead <em>misrepresent</em> it</li>
+      </ul>
+      <h4>Irony in Decomposition</h4>
+      <div class="note"><strong>Situational / Dramatic Irony:</strong> The speaker professes artistic sensitivity, yet their act of photographing and titling the image is itself an act of exploitation. The beggar's posture of "one weeping into a pillow chides me now" — the poem turns on the speaker. ART + individual (beggar) are both entrapped by the indifference of society. Theme: <strong>Individual vs. Society</strong>.</div>
+      <h4>Creative Exercise II (Ekphrastic Poetry)</h4>
+      <p>Write a poem in response to one of the following photographs:</p>
+      <ol>
+        <li>Kevin Carter's "Starving Child and Vulture" (1993)</li>
+        <li>James Nachtwey's "Famine in Somalia" (1992)</li>
+        <li>Louie Favourite's "Terri Gurrola reunites with daughter after serving in Iraq" (2007)</li>
+        <li>Rodrigo Abd's "Ukrainian Soldier Playing Football" (2022)</li>
+      </ol>
+      <p>Your poem should: (a) use a range of primary and secondary techniques, (b) pay attention to lineation (end-stopped, enjambment), (c) include a moment of irony if possible.</p>
+    </div>
+  </details>
+
+  <!-- You're Not Allowed -->
+  <details>
+    <summary>You're Not Allowed — Wendy Cope</summary>
+    <div class="details-body">
+      <div class="mini-header">Question: How does the poet vividly portray the mother's relationship with her child?</div>
+      <div class="poem-box">You're not allowed to wonder if it's true:
+She loves you very much. She tells you so.
+
+She is the one who knows what's best for you.
+She tells you what to do and where to go.
+She loves you very much. She tells you so.         5
+That's why she's sending you to boarding school.
+
+She tells you what to do and where to go
+And there is no appeal against her rule.
+And now she's sending you to boarding school.
+She'll be upset if you are cross and sad.          10
+
+And there is no appeal against this rule:
+If Mummy is upset, you must be bad.
+Her children often make her cross and sad
+And then she cries. She cries and sulks all day.
+
+If Mummy is upset, you must be bad.               15
+It's no good saying sorry. You must pay.
+You watch her cry. She cries and sulks all day.
+You'd make your mother happy, if you could.
+
+It's no use saying sorry. You must pay.
+Things will get better, if you're very good.       20
+You'd make your mother happy, if you could.
+She is the one who knows what's best for you.
+
+Things will get better, if you're very good.
+You're not allowed to wonder if it's true.
+
+<span class="poem-attribution">— by Wendy Cope</span></div>
+      <h4>Key Analysis Points</h4>
+      <ul>
+        <li><strong>Form — Pantoum:</strong> Recurring lines throughout the poem mirror the child's psychological entrapment — the repetition enacts the inescapability of the mother's control.</li>
+        <li><mark>"You're not allowed to wonder if it's true"</mark> — ironic opening; the very existence of this line invites the reader to wonder. Title = first line = circular structure.</li>
+        <li><mark>"She loves you very much. She tells you so."</mark> — verbal irony; the assertion "she tells you so" undermines authenticity of love; love should be felt, not declared under duress.</li>
+        <li><mark>"If Mummy is upset, you must be bad"</mark> — toxic logic; the child internalises guilt for the mother's emotional manipulation.</li>
+        <li><mark>"There is no appeal against her rule"</mark> — controlling, authoritarian language; reduces the child to a subject with no autonomy.</li>
+        <li><strong>Second-person address "you":</strong> implicates the reader directly; creates uncomfortable intimacy.</li>
+      </ul>
+    </div>
+  </details>
+
+</section>
+
+<!-- ======== LITERARY TECHNIQUES ======== -->
+<section id="techniques">
+  <div class="section-label">04 — Language</div>
+  <h2>Literary Techniques</h2>
+
+  <!-- Diction -->
+  <details open>
+    <summary>Diction — Word Choice</summary>
+    <div class="details-body">
+      <p>Diction refers to the deliberate use of specific words for a certain purpose; word choice creates a particular effect and emotion.</p>
+      <p>Words normally have two meanings:</p>
+      <ul>
+        <li><strong>Denotative Meaning</strong> — the literal dictionary meaning of a word (its level 1 meaning in a document)</li>
+        <li><strong>Connotative Meaning</strong> — the connective (associative) meaning; what a word implies or suggests beyond its literal sense</li>
+      </ul>
+      <div class="note"><strong>How to write about diction:</strong> "The connotations of the word '<em>X</em>' creates/implies/suggests [effect] in which…" — In poetry, focus on the <em>connotative</em> meaning of words.</div>
+      <div class="starter-grid">
+        <div class="starter-item"><span>The use of the word "<em>X</em>"</span> creates and enhances…</div>
+        <div class="starter-item"><span>The connotations of the word "<em>X</em>"</span> conveys / expresses / evinces…</div>
+        <div class="starter-item"><span>The action of the word "<em>X</em>"</span> conveys / implies / suggests…</div>
+      </div>
+    </div>
+  </details>
+
+  <!-- Figurative Language -->
+  <details>
+    <summary>Figurative Language</summary>
+    <div class="details-body">
+      <div class="card-grid">
+        <div class="card-sm">
+          <h4>Simile <span class="tag tag-blue">figurative</span></h4>
+          <p>An <em>explicit</em> comparison using "like" or "as."</p>
+          <blockquote>e.g. <em>The student in the class ran like a cheetah in the field.</em></blockquote>
+          <p><strong>Analyse:</strong> Subject | Object | Characteristics of Object | Purpose of Comparison</p>
+        </div>
+        <div class="card-sm">
+          <h4>Metaphor <span class="tag tag-blue">figurative</span></h4>
+          <p>An <em>implicit</em> comparison — one thing applied directly to another without "like/as."</p>
+          <blockquote>e.g. <em>Time is money.</em></blockquote>
+          <p>Carries stronger, more internalised force than a simile.</p>
+        </div>
+        <div class="card-sm">
+          <h4>Personification <span class="tag tag-blue">figurative</span></h4>
+          <p>Attributes human qualities to things that are not human.</p>
+          <blockquote>e.g. <em>Henry felt a deep sense of despair with a bowed head</em> (of a chair).</blockquote>
+          <p>Creates empathy, moral weight, or emotional resonance.</p>
+        </div>
+        <div class="card-sm">
+          <h4>Hyperbole <span class="tag tag-blue">figurative</span></h4>
+          <p>Use of exaggeration or overstatement for serious or comic effect.</p>
+          <blockquote>e.g. <em>I'll love you till China and Africa meet.</em></blockquote>
+          <p>Consider: is it hyperbolic? This can be questioned for analytical depth.</p>
+        </div>
+      </div>
+      <div class="note" style="margin-top:1rem;"><strong>Analysing Simile/Metaphor:</strong> Always state: Subject | Object | Characteristics of Object | Purpose of Comparison — e.g. "The 'log' (subject) is like 'plastic' (object). 'Plastic' has the characteristics of being easily blown and meaningless and insignificant (characteristics). This serves the purpose of conveying the utter insignificance of ordinary lives in war."</div>
+    </div>
+  </details>
+
+  <!-- Imagery -->
+  <details>
+    <summary>Imagery</summary>
+    <div class="details-body">
+      <p>Imagery is the pictures the writer creates in the mind by an appeal through our senses. Identify the imagery and consider the effect of the imagery used.</p>
+      <table class="rubric-table">
+        <tr>
+          <th>Imagery Type</th><th>Appeals To</th><th>Example</th>
+        </tr>
+        <tr><td>Visual</td><td>Sense of sight</td><td>the coldness of pins in notice boards</td></tr>
+        <tr><td>Auditory</td><td>Sense of hearing</td><td>a burst of laughter from the corridor</td></tr>
+        <tr><td>Olfactory</td><td>Sense of smell</td><td>the aroma of cooling food wafting from the canteen</td></tr>
+        <tr><td>Tactile</td><td>Sense of physical feeling/touch</td><td>the running quality of plastic chairs</td></tr>
+        <tr><td>Gustatory</td><td>Sense of taste</td><td>the end of a pleasant meal</td></tr>
+      </table>
+    </div>
+  </details>
+
+  <!-- Patterns of Language -->
+  <details>
+    <summary>Patterns of Language</summary>
+    <div class="details-body">
+      <div class="card-grid">
+        <div class="card-sm">
+          <h4>Repetition <span class="tag tag-gold">pattern</span></h4>
+          <p>A word/phrase repeated in the text to create emphasis and add a particular idea to the reader.</p>
+          <blockquote>e.g. "The Sun": <em>"back and forth, back and forth"</em> uses repetition to highlight the rebel's relentless aggression.</blockquote>
+        </div>
+        <div class="card-sm">
+          <h4>Parallel / Parallelism <span class="tag tag-gold">pattern</span></h4>
+          <p>A word or phrase is mirrored to draw a similarity/contrast between two ideas.</p>
+          <blockquote>e.g. In "Geography Lesson," the teacher's passion is at the beginning; students' love comes down and drops by the end of the poem, contrasting the gradient.</blockquote>
+        </div>
+        <div class="card-sm">
+          <h4>Contrast <span class="tag tag-gold">pattern</span></h4>
+          <p>Contrasting words or ideas placed close together — juxtaposition.</p>
+          <blockquote>e.g. In "We Papier Walk": "waltz" is an elegant, graceful dance; "father and son" are compared yet the son is "contemptuous" of the father's dance.</blockquote>
+        </div>
+        <div class="card-sm">
+          <h4>Listing <span class="tag tag-gold">pattern</span></h4>
+          <p>A number of interconnected items written consecutively. Can be used to overwhelm or create emphatic effect.</p>
+          <blockquote>e.g. "The Vile": the listing of "wandering dots" conveys an overwhelming, murderous picture of everyday life in the HDB block.</blockquote>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <!-- Sound Techniques -->
+  <details>
+    <summary>Sound Techniques</summary>
+    <div class="details-body">
+      <div class="grid2">
+        <div>
+          <h4>Vowel Sounds</h4>
+          <table class="rubric-table">
+            <tr><th>Sound</th><th>Examples</th><th>Effect</th></tr>
+            <tr><td>Long vowels</td><td>steel, dream, soar</td><td>Slow, melancholic, lingering</td></tr>
+            <tr><td>Short vowels</td><td>click, snap, grip</td><td>Sharp, quick, tense</td></tr>
+          </table>
+          <h4 style="margin-top:1rem;">Consonant Sounds</h4>
+          <table class="rubric-table">
+            <tr><th>Name</th><th>Consonants</th><th>Effect</th></tr>
+            <tr><td>Guttural</td><td>g, k</td><td>Harsh, aggressive</td></tr>
+            <tr><td>Fricative</td><td>f, v</td><td>Airy, violent, whispering</td></tr>
+            <tr><td>Plosive</td><td>p, b</td><td>Explosive, abrupt</td></tr>
+            <tr><td>Sibilant</td><td>s, z</td><td>Hissing, sinister, seductive</td></tr>
+            <tr><td>Nasal</td><td>m, n</td><td>Soft, mournful, hollow</td></tr>
+            <tr><td>Liquid</td><td>l</td><td>Flowing, smooth</td></tr>
+          </table>
+        </div>
+        <div>
+          <h4>Key Sound Devices</h4>
+          <div class="card-sm" style="margin-bottom:0.6rem;">
+            <strong>Alliteration</strong> — Repetition of consonant sounds; usually the consonant that <em>begins</em> a word or stressed syllable within a word.
+            <blockquote>e.g. <em>The smooth snake slithered silently</em></blockquote>
+          </div>
+          <div class="card-sm" style="margin-bottom:0.6rem;">
+            <strong>Assonance</strong> — Repetition of vowel sounds. <em>e.g. The feast of the beast</em>
+          </div>
+          <div class="card-sm" style="margin-bottom:0.6rem;">
+            <strong>Consonance</strong> — Repetition of consonant sounds, usually where the consonant <em>ends</em> a word or stressed syllable.
+          </div>
+          <div class="card-sm" style="margin-bottom:0.6rem;">
+            <strong>Onomatopoeia</strong> — Use of words to imitate the sound they describe. <em>e.g. Bang. The gun went off.</em>
+          </div>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <!-- Rhythm -->
+  <details>
+    <summary>Rhythm &amp; Lineation</summary>
+    <div class="details-body">
+      <div class="card-grid">
+        <div class="card-sm">
+          <h4>Enjambment / Run-on <span class="tag tag-purple">structure</span></h4>
+          <p>A line of poetry in which logical and grammatical sense carries over from one line into the next. Creates urgency, fluidity, or mimics breathlessness.</p>
+        </div>
+        <div class="card-sm">
+          <h4>Caesura <span class="tag tag-purple">structure</span></h4>
+          <p>A pause or break in a line of poetry (often a period or comma), usually near the middle. Creates tension, abruptness, dramatic pause.</p>
+        </div>
+        <div class="card-sm">
+          <h4>End-Stopped Line <span class="tag tag-purple">structure</span></h4>
+          <p>A line that ends at the end of the line due to punctuation. When a sentence is complete, an end-stopped line conveys finality, closure, or resolution.</p>
+        </div>
+      </div>
+      <div class="note"><strong>Calming to Cacophonous:</strong> Calming, Lulling, Lilting, Musical, Melodic | Soft, Faint, Rustling, Sensual, Mellifluous, Euphonic | Insistent, Resonant, Reverberating, Incantatory, Throbbing, Unremitting | Sharp, Harsh, Discordant, Thunderous, Piercing, Raucous, Jarring, Cacophonous</div>
+    </div>
+  </details>
+
+</section>
+
+<!-- ======== IRONY ======== -->
+<section id="irony">
+  <div class="section-label">05 — Key Concept</div>
+  <h2>Irony</h2>
+  <p>Irony is the expression of meaning by using language that normally signifies the <em>opposite</em>, typically for humorous or emphatic effect.</p>
+
+  <div class="card-grid">
+    <div class="card-sm">
+      <h4>a. Verbal Irony <span class="tag tag-gold">type</span></h4>
+      <p>Statement in which the <em>implied</em> meaning differs sharply from what is literally said. Can include sarcasm.</p>
+      <blockquote>e.g. <em>"He is a great teacher"</em> (said by someone who doesn't like the teacher)</blockquote>
+      <p>The sentiment is immediately <strong>undercut</strong> in the next line or context. Reveals character (cheeky, playful, irreverent, disrespectful).</p>
+    </div>
+    <div class="card-sm">
+      <h4>b. Situational Irony <span class="tag tag-green">type</span></h4>
+      <p>A state of affairs that seems deliberately contrary to what was expected; cruelly, humorously, or strangely at odds with expectations.</p>
+      <blockquote>e.g. <em>An Instagram post complaining about how useless Instagram is.</em></blockquote>
+      <p>Uses the very platform it criticises to make the complaint — indicates the platform is valuable to the poster despite their claim.</p>
+    </div>
+    <div class="card-sm">
+      <h4>c. Dramatic Irony <span class="tag tag-red">type</span></h4>
+      <p>A situation in a play or narrative in which the audience/reader shares knowledge of present or future circumstances of which a character is ignorant.</p>
+      <blockquote>e.g. <em>When Caesar speaks to Brutus and Cassius in Act 3.1, not knowing they are planning his assassination.</em></blockquote>
+      <p>Creates a heightened sense of suspense, tension, dread — renders the audience helpless.</p>
+    </div>
+  </div>
+
+  <h3>How to Analyse Irony</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">a</div>
+      <div class="step-content">
+        <div class="step-title">Identify the expectation present in context</div>
+        <div class="step-desc">Contextualise and quote the evidence.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">b</div>
+      <div class="step-content">
+        <div class="step-title">Explain how this expectation is undermined/undercut</div>
+        <div class="step-desc">Contextualise and quote the evidence showing the reversal.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">c</div>
+      <div class="step-content">
+        <div class="step-title">Identify the effect of the irony</div>
+        <div class="step-desc">Typically a personal response: humorous, amusing, bittersweet, incredulous, suspenseful, tense, etc.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">d</div>
+      <div class="step-content">
+        <div class="step-title">Link to meaning</div>
+        <div class="step-desc">Characterisation and/or thematic insight.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== FORM ======== -->
+<section id="form">
+  <div class="section-label">06 — Form &amp; Structure</div>
+  <h2>Poetic Form</h2>
+
+  <p><strong>Structure</strong> = development of ideas (how ideas change and develop across the poem).<br>
+  <strong>Form</strong> = the physical visible shape of the poem.</p>
+
+  <div class="grid2">
+    <div class="card">
+      <h4>Free Verse <span class="tag tag-blue">form</span></h4>
+      <p>No regular rhyme scheme or metre. Suggests:</p>
+      <ul>
+        <li>Freedom, chaos, creativity</li>
+        <li>Unrestrained emotion</li>
+        <li>Disorder, fragmentation</li>
+        <li>Often reflects the subject matter's lack of order</li>
+      </ul>
+      <blockquote><em>"Children in Wartime"</em> is in free verse — mirrors the chaos and disorientation of wartime experience.</blockquote>
+    </div>
+    <div class="card">
+      <h4>Stanzaic (Regular) <span class="tag tag-green">form</span></h4>
+      <p>Regular stanzas with a fixed structure. Suggests:</p>
+      <ul>
+        <li>Containment, restriction, tradition</li>
+        <li>Control, regularity</li>
+        <li>Can create tension when content is disturbing</li>
+        <li>The form itself becomes commentary</li>
+      </ul>
+      <blockquote><em>"an afternoon nap"</em> uses regular quatrains — the unchanging form parallels the boy's psychological confinement and entrapment.</blockquote>
+    </div>
+  </div>
+
+  <div class="note"><strong>WAZ for Form:</strong> (1) Identify form (free verse / stanzaic / pantoum / sonnet). (2) Analyse what this form suggests — confinement, freedom, disorder, circularity? (3) Link to meaning — how does the physical shape of the poem comment on its subject matter? <em>This should appear in every essay response.</em></div>
+
+  <h3>Form affects meaning — examples</h3>
+  <table class="rubric-table">
+    <tr>
+      <th>Form Type</th><th>What it Suggests</th><th>Example from Studied Poems</th>
+    </tr>
+    <tr>
+      <td>Free verse</td>
+      <td>Chaos, trauma, freedom, fragmentation, uncontrollable emotion</td>
+      <td>e.g. A war poem in free verse mirrors the chaos and disorientation of wartime experience</td>
+    </tr>
+    <tr>
+      <td>Regular quatrains</td>
+      <td>Restriction, entrapment, unchanging routine, psychological confinement</td>
+      <td>e.g. A poem about a controlling relationship — the rigid stanzas literalise the child's inability to escape</td>
+    </tr>
+    <tr>
+      <td>Stanzaic (general)</td>
+      <td>Resolution, structure, restriction — the beggar/subject has no agency; trapped by circumstances</td>
+      <td>e.g. A poem about social indifference — the form suggests the subject is fixed, immovable, forgotten</td>
+    </tr>
+    <tr>
+      <td>Pantoum / Repeating lines</td>
+      <td>Inescapable cycles, circular logic, psychological imprisonment, generational repetition</td>
+      <td>e.g. A poem where lines repeat mirrors the inescapable logic of control or cycles of trauma</td>
+    </tr>
+    <tr>
+      <td>Sonnet (14 lines, rhyme)</td>
+      <td>Tradition, elevated subject matter, argument + resolution (volta), control over chaos</td>
+      <td>e.g. A war sonnet ironically borrows a form associated with love poetry — the clash itself is the irony</td>
+    </tr>
+  </table>
+</section>
+
+<!-- ======== VOCAB ======== -->
+<section id="vocab">
+  <div class="section-label">07 — Expression</div>
+  <h2>Writing Vocabulary &amp; Cheat Sheet</h2>
+
+  <p>Every sentence in your response needs a <strong>method → creates/enhances → effect on reader</strong> structure. Use this vocabulary to vary your expression.</p>
+
+  <h3>Sentence Frames (Y2 Writing)</h3>
+  <div class="starter-grid">
+    <div class="starter-item"><span>The use of the intensifier "very"</span> presents / portrays / depicts the character as…</div>
+    <div class="starter-item"><span>The repetition of the word "always"</span> suggests / implies that appearances lie…</div>
+    <div class="starter-item"><span>Significantly, the narrator's skewed portrayal</span> illustrates / demonstrates / elucidates to the reader the possibility that…</div>
+    <div class="starter-item"><span>The floral images employed by the writer</span> signify / symbolise / embody the romantic undercurrent in the relationship…</div>
+    <div class="starter-item"><span>The choice of the word "unimaginable"</span> reflects / reveals / mirrors a sense of disbelief…</div>
+    <div class="starter-item"><span>As evident in the italicisation of "truly"</span> the ironic tone conveys / expresses / evinces the air of cynicism in the poem…</div>
+    <div class="starter-item"><span>It is arguable that the atypical ABCDDC rhyme scheme</span> exudes / conjures / creates a jarring effect on the reader…</div>
+    <div class="starter-item"><span>The conversational rhythm of the poem</span> evokes / renders / projects / lends a sense of immediacy to the subject matter…</div>
+    <div class="starter-item"><span>The pronounced capitalisation of "Honour" and "Glory"</span> shifts / alters / intensifies / transforms the attitude of the persona from…</div>
+    <div class="starter-item"><span>The subtle use of "envy" instead of "admire"</span> begs the reader / calls for us / invites us to reconsider his original view of the character as…</div>
+    <div class="starter-item"><span>The biting, caustic nature of the dialogue</span> foregrounds / foreshadows / prefigures the character's subsequent revenge plot…</div>
+  </div>
+
+  <h3>Adjectives to Describe Intensity</h3>
+  <div class="card" style="overflow:hidden;">
+    <div style="display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
+      <span style="color:var(--text-dim); font-size:0.8rem;">Faint · Muted · Soft · Gentle · Mild · Restrained</span>
+      <span style="flex:1; height:3px; background: linear-gradient(90deg, var(--text-dim), var(--gold)); border-radius:2px; min-width:50px;"></span>
+      <span style="color:var(--gold-light); font-size:0.8rem; text-align:right;">Forceful · Powerful · Emphatic · Overwhelming · Unbridled · Resounding</span>
+    </div>
+  </div>
+
+  <h3>Mood &amp; Imagery Adjectives</h3>
+  <div class="card-grid">
+    <div class="card-sm">
+      <h4>Realistic / Naturalistic</h4>
+      <p style="color:var(--text-dim); font-size:0.85rem;">Reflective, Nostalgic, Wistful, Sentimental, Poignant, Pensive, Introspective</p>
+    </div>
+    <div class="card-sm">
+      <h4>Joyful / Ecstatic</h4>
+      <p style="color:var(--text-dim); font-size:0.85rem;">Joyful, Euphoric, Ecstatic, Rapturous, Optimistic, Comforting, Hopeful, Buoyant, Sanguine, Praising, Acclamatory, Celebratory</p>
+    </div>
+    <div class="card-sm">
+      <h4>Tense / Disturbing</h4>
+      <p style="color:var(--text-dim); font-size:0.85rem;">Tense, Disturbing, Unnerving, Unsettling, Abrasive, Violent, Gripping, Sinister, Distressing, Macabre</p>
+    </div>
+    <div class="card-sm">
+      <h4>Gruesome / Repulsive</h4>
+      <p style="color:var(--text-dim); font-size:0.85rem;">Gruesome, Repulsive, Appalling, Grotesque, Repugnant, Horrific</p>
+    </div>
+    <div class="card-sm">
+      <h4>Dreamlike / Surreal</h4>
+      <p style="color:var(--text-dim); font-size:0.85rem;">Mesmeric, Unreal, Surreal, Dreamlike, Phantasmagoric, Hypnotic, Enchanting, Haunting, Terrifying, Harrowing</p>
+    </div>
+    <div class="card-sm">
+      <h4>Despondent / Bitter</h4>
+      <p style="color:var(--text-dim); font-size:0.85rem;">Despondent, Desolate, Bleak, Despairing, Dreary, Gloomy, Mournful, Rueful, Sombre, Solemn, Austere, Grim, Lament, Anguished, Biting, Aggressive, Caustic, Fervent, Bitter, Virulent</p>
+    </div>
+    <div class="card-sm">
+      <h4>Comic / Sardonic</h4>
+      <p style="color:var(--text-dim); font-size:0.85rem;">Comic, Playful, Teasing, Mocking, Sardonic, Satirical, Irreverent, Blithe</p>
+    </div>
+    <div class="card-sm">
+      <h4>Resigned / Passive</h4>
+      <p style="color:var(--text-dim); font-size:0.85rem;">Pessimistic, Regretful, Resigned, Acquiescent, Accepting</p>
+    </div>
+  </div>
+
+  <h3>Register (Style)</h3>
+  <div class="card-grid">
+    <div class="card-sm">
+      <h4>Formal / Elevated</h4>
+      <p style="color:var(--text-dim); font-size:0.85rem;">Formal, Elevated, Courtly, Ceremonious — Strong, Charged, Exaggerated, Indulgent, Hyperbolic</p>
+    </div>
+    <div class="card-sm">
+      <h4>Informal / Casual</h4>
+      <p style="color:var(--text-dim); font-size:0.85rem;">Informal, Casual, Conversational, Colloquial — Simple, Plain, Subtle, Restrained, Understated</p>
+    </div>
+    <div class="card-sm">
+      <h4>Lyrical / Poetic</h4>
+      <p style="color:var(--text-dim); font-size:0.85rem;">Touching, Moving, Rich, Evocative, Poetic, Lyrical, Lurid, Vivid, Majestic, Resplendent</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======== RUBRIC ======== -->
+<section id="rubric">
+  <div class="section-label">08 — Assessment</div>
+  <h2>2021 Band Descriptors for Unseen Responses (Analytic)</h2>
+  <p>The rubric has three main pillars: <strong>Critical Analysis</strong> (understanding + analysis), <strong>Textual Engagement</strong> (use of evidence), and <strong>Expression</strong> (argumentation + communication).</p>
+
+  <div style="overflow-x:auto; margin-top:1rem;">
+  <table class="rubric-table">
+    <tr>
+      <th>Band</th>
+      <th>1. Understanding of Subject Matter</th>
+      <th>2. Level of Analysis &amp; Evaluation</th>
+      <th>4. Level of Engagement</th>
+      <th>5. Argumentation</th>
+      <th>6. Communication</th>
+    </tr>
+    <tr>
+      <td><div class="band-label band-aplus">A+<br><small>22–25</small></div></td>
+      <td>Intelligent grasp of subject matter. <strong>Freshness of insight.</strong></td>
+      <td>Good analysis and evaluation. Ability to critically appreciate. <strong>Sensitive and informed personal response.</strong></td>
+      <td>Close engagement with text. Well supported by textual evidence.</td>
+      <td>Ideas developed effectively. <strong>Highly coherent argument.</strong></td>
+      <td>Clarity of thought and expression.</td>
+    </tr>
+    <tr>
+      <td><div class="band-label band-a">A<br><small>18–21</small></div></td>
+      <td>Competent grasp of subject matter.</td>
+      <td>Analysis and evaluation reflecting conscientiousness rather than sophistication. There is a personal response.</td>
+      <td>Evidence of close engagement, though may not be sustained. Ideas often supported by relevant substantiation.</td>
+      <td>Thorough, though unsophisticated.</td>
+      <td>Coherent and clear, though may lack polish and subtlety.</td>
+    </tr>
+    <tr>
+      <td><div class="band-label band-b">B<br><small>15–17</small></div></td>
+      <td>Sound basic understanding of text and how to respond to it.</td>
+      <td>Some evidence of analysis and evaluation — brief, mechanical, or naïve.</td>
+      <td>Some engagement. Substantiated with appropriate references.</td>
+      <td>Demonstrates coherence.</td>
+      <td>Communicates clearly.</td>
+    </tr>
+    <tr>
+      <td><div class="band-label band-c">C<br><small>12–14</small></div></td>
+      <td>Some awareness of text. May be some misreading but not enough to undermine general ideas.</td>
+      <td>Response is largely paraphrase.</td>
+      <td>Engagement with text. Uses inappropriate substantiation.</td>
+      <td>Fairly coherent.</td>
+      <td>Expression hampered by lack of clarity/accuracy; meaning still conveyed.</td>
+    </tr>
+    <tr>
+      <td><div class="band-label band-d">D<br><small>9–11</small></div></td>
+      <td>Superficial understanding only.</td>
+      <td>—</td>
+      <td>Minimal engagement.</td>
+      <td>Not very coherent.</td>
+      <td>Manages to convey thoughts with some difficulty.</td>
+    </tr>
+    <tr>
+      <td><div class="band-label band-e">E<br><small>5–8</small></div></td>
+      <td>Almost no understanding.</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Attempts to communicate understanding of text.</td>
+    </tr>
+    <tr>
+      <td><div class="band-label band-f">F<br><small>0–4</small></div></td>
+      <td colspan="5" style="text-align:center; color:var(--text-dim); font-style:italic;">Answers may reflect no understanding of the text and the question; may be incoherent.</td>
+    </tr>
+  </table>
+  </div>
+
+  <h3>What separates Band A from Band A+?</h3>
+  <div class="card-grid">
+    <div class="card-sm">
+      <h4>Band A (18–21)</h4>
+      <ul>
+        <li>Competent understanding</li>
+        <li>Conscientiousness over sophistication</li>
+        <li>Engagement not always sustained</li>
+        <li>Thorough but unsophisticated argument</li>
+      </ul>
+    </div>
+    <div class="card-sm">
+      <h4 style="color: var(--gold-light);">Band A+ (22–25)</h4>
+      <ul>
+        <li><strong>Freshness of insight</strong> — original, unexpected angle</li>
+        <li>Critical appreciation of the text</li>
+        <li><strong>Sensitive and informed personal response</strong></li>
+        <li>Highly coherent, well-developed argument</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note"><strong>Key to Band A+:</strong> "Freshness of insight" means your reading is not obvious — you notice something other students might miss (irony, structural parallels, the connotations of a single word). A personal, sensitive response means you describe how the text makes <em>you</em> feel, using adjectives from the vocabulary list above.</div>
+</section>
+
+<!-- ======== SAMPLE PARA ======== -->
+<section id="sample">
+  <div class="section-label">09 — Worked Example</div>
+  <h2>Sample Paragraph: "an afternoon nap"</h2>
+  <p>From the teacher's worked example (Handout 3b). Note the density of analysis and how multiple techniques are woven together.</p>
+
+  <div class="card" style="border-color: var(--gold-dim);">
+    <p style="color:var(--text);">Furthermore, as the poem progresses in stanzas 2 and 3, their relationship seems to become even more adversarial. The cacophonous auditory imagery evoked in the mother's voice <mark>"strik[ing] chords"</mark> is a particularly jarring one as this is made even more hyperbolic by the mother's predatory way in which she <mark>"circl[es] the cowering boy"</mark> which portrays her son as prey that is trapped under his mother.</p>
+
+    <p style="color:var(--text);"><u>The regular quatrains of the poem also become a parallel to the child's feeling of restriction and entrapment as the poem enacts the sense of psychological confinement the boy feels which is literalised through the use of the unchanging and regular stanzaic verse.</u> In the next stanza, the speaker describes the mother's movements to be <mark>"contorted,"</mark> which has connotations of being unnatural and disturbing, giving the readers an unsettling feeling. She is even compared to a wild and primitive <mark>"ape"</mark> which is a metaphor for the mother's uncontrollable anger which is a disproportionate reaction in contrast to the child's trivial mistake of missing <mark>"2 notes"</mark> on his/her piano. Moreover, the mother's slow and heavy <mark>"lumber[ing]"</mark> movements and her penetrating and hideous <mark>"shrieks"</mark> evinces an unflattering and animalistic picture, as the readers imagine, horrifyingly, an utterly cruel and inhumane mother oppressing her child, restricting his every action. The boy has to deal with his mother's unpleasant and shrill voice, illustrating how her voice contains no trace of mercy and gentleness, only frightening her pitiful child.</p>
+  </div>
+
+  <div class="note" style="margin-top:1rem;">
+    <strong>What this paragraph does well:</strong>
+    <ul>
+      <li>Links auditory imagery → personal response → structural observation (underlined section connecting form to meaning)</li>
+      <li>Multiple techniques in one paragraph: auditory imagery, metaphor ("ape"), hyperbole, connotations, and structural form</li>
+      <li>Personal response language: "readers imagine, horrifyingly…"</li>
+      <li>Adjectives unpacking connotations: "unnatural and disturbing"</li>
+    </ul>
+  </div>
+
+  <h3>Thematic Insight Levels (from teacher feedback)</h3>
+  <table class="rubric-table">
+    <tr>
+      <th>Band B Understanding</th>
+      <th>Band A Understanding (Dev / Contrast)</th>
+      <th>Band A+ Understanding (Big Picture)</th>
+    </tr>
+    <tr>
+      <td>First of all, focus on Q: What is a good description of the mother's relationship with the child?<br>— Telic<br>— Coercive<br>— Demanding<br>— Unhealthy</td>
+      <td>Does the relationship change over time? Is there any contrast for it? <br>Stanza 1 vs 5: the boy becomes like the mother. He uses the same demanding language of complaints. The cycle of abuse/control perpetuates.</td>
+      <td>What insight does the poem give about the mother-child relationship? <br>Aggression is Pointlessly / fruitlessly controlled as Striving. The poet reveals that excessive parental ambition, cloaked in love, is ultimately a form of harm — it does not empower the child but imprisons and mirrors him.</td>
+    </tr>
+  </table>
+</section>
+
+<!-- ======== THEMATIC INSIGHTS ======== -->
+<section id="thematic">
+  <div class="section-label">10 — Big Picture</div>
+  <h2>Thematic Insights &amp; Big Picture Thinking</h2>
+  <p>This section contains the highest-level readings of each poem — the kind of thematic insight that distinguishes Band A from Band A+. These are general frameworks; apply them to whichever poem appears in the exam.</p>
+
+  <div class="note"><strong>How to use these:</strong> These are <em>examples</em> of how to develop thematic insights. The pattern is always: describe what the poem shows → identify the contrast or development → state what this reveals about a universal truth (society, power, human nature, cycles of behaviour).</div>
+
+  <h3>Individual vs. Society</h3>
+  <div class="card">
+    <p>Many poems explore the tension between a single person and the broader social structures that constrain them. The individual is often <em>entrapped</em> by society's expectations, indifference, or power — and this entrapment is frequently literalised through the poem's form (e.g. regular stanzas as prison, repeating lines as inescapable cycles).</p>
+    <p><strong>Example application:</strong> In a poem about poverty, the beggar is not just personally unfortunate — he is a victim of societal indifference. The crowd's passivity makes them complicit. The poet reveals that society <em>normalises</em> suffering until it becomes invisible. ART + individual: both the subject and the act of representing him are caught within a system that misrepresents rather than truly sees.</p>
+    <p><strong>Example application:</strong> In a poem about a controlling mother, the mother herself is not simply villainous — she is the <em>embodiment of societal (e.g. Asian) expectations</em> about educational achievement. The son views the mother as a symbol of these pressures. Both parent and child are entrapped by these expectations, as shown through the poem's form.</p>
+  </div>
+
+  <h3>Generational Cycles &amp; Inherited Trauma</h3>
+  <div class="card">
+    <p>Some poems reveal how trauma, behaviour, or values are passed down — often unconsciously — from parent to child. The child, despite suffering, eventually becomes the parent. This creates a tragic, never-ending cycle, and the poem's structure often enacts this circularity (mirrored stanzas, repeated lines, a closing line that echoes the opening).</p>
+    <p><strong>Thematic insight pattern:</strong> "The poem reveals that [trauma / control / ambition] is not simply an individual failing but a <em>generational cycle</em>: the child who suffers eventually replicates the very behaviour that harmed them, suggesting that societal pressures perpetuate themselves through families."</p>
+    <p><strong>Tragic irony:</strong> The child cannot understand the parent's loving intentions (yet). The parent wants the child to succeed — but the methods cause harm. This is inherently tragic: good intentions produce destructive outcomes. The child becomes the parent.</p>
+  </div>
+
+  <h3>The Cost of War / Conflict on the Powerless</h3>
+  <div class="card">
+    <p>War poems often focus not on the powerful (generals, politicians, those who started the conflict) but on those who bear its cost: children, ordinary soldiers, civilians. The thematic insight is that conflict's violence falls most heavily on the innocent and powerless — those who had no say in the decision to fight.</p>
+    <p><strong>Thematic insight pattern:</strong> "The poem reveals that conflict most severely afflicts ordinary, innocent people — not those in charge. The poet highlights the insignificance of individual human lives to the machinery of war and its indifference to each person."</p>
+    <p><strong>Development:</strong> Consider also the psychological dimension — war doesn't just destroy bodies, it destroys childhood, safety, and the capacity to feel secure. The domestic space (e.g. a bedroom, a window) becomes a site of violence.</p>
+  </div>
+
+  <h3>Art, Representation &amp; Ethics</h3>
+  <div class="card">
+    <p>Some poems interrogate the act of artistic representation itself — the ethics of turning human suffering into art. The poet-speaker may begin with detachment or intellectual interest, only to be "chided" by guilt at the end. This ironic reversal reveals the poem's deeper concern: the complicity of the observer/artist in perpetuating indifference.</p>
+    <p><strong>Thematic insight pattern:</strong> "The poem reveals the moral ambiguity of art: in attempting to document or aestheticise poverty/suffering, the artist risks reducing the subject to an object — misrepresenting rather than truly seeing. The poem thus becomes a self-critique of artistic presumption."</p>
+  </div>
+
+  <h3>Thematic Insight Development: 3 Levels</h3>
+  <table class="rubric-table">
+    <tr>
+      <th>Band B (Basic)</th>
+      <th>Band A (Developed)</th>
+      <th>Band A+ (Big Picture)</th>
+    </tr>
+    <tr>
+      <td>Describe what the poem shows.<br><br><em>"The poem shows that war harms children."</em></td>
+      <td>Identify a contrast, development, or irony in how it shows it.<br><br><em>"The poem contrasts the child's naive perception (giant playing bowls) with the adult reality of destruction, showing how war corrupts innocence."</em></td>
+      <td>State what this reveals about a universal truth — society, power, human nature, cycles.<br><br><em>"The poem reveals that war's most devastating cost is not physical but psychological: it destroys the very capacity for safety and wonder that defines childhood, leaving behind only trauma and disorientation."</em></td>
+    </tr>
+    <tr>
+      <td><em>"The poem shows a controlling mother."</em></td>
+      <td><em>"The poem shows that the mother's control, while rooted in ambition, mirrors the very behaviour in the son by the end — suggesting the cycle perpetuates itself."</em></td>
+      <td><em>"The poem reveals that societal expectations — here, the pressure for educational achievement — are so powerful they transform love into a weapon, and ultimately produce the very dysfunction they were meant to prevent. The child becomes the parent."</em></td>
+    </tr>
+    <tr>
+      <td><em>"The poem shows a beggar being ignored."</em></td>
+      <td><em>"The poem contrasts the crowd's indifference with the speaker's artistic interest, ironically showing that both responses fail to truly see the beggar as a person."</em></td>
+      <td><em>"The poem reveals that both social indifference and artistic exploitation are forms of dehumanisation: society makes poverty invisible; art makes it decorative. The beggar is doubly entrapped — by poverty and by the very gaze meant to represent him."</em></td>
+    </tr>
+  </table>
+</section>
+
+
+
+<a href="#" class="back-top">↑</a>
+
+<footer>
+  Raffles Programme · Year 2 English Literature · Unseen Poetry · Study Guide
+</footer>
+
+<script>
+  // Active nav highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav a');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => link.classList.remove('active'));
+        const active = document.querySelector(`nav a[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
